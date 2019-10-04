@@ -1,3 +1,5 @@
 module.exports = {
-  publicPath: '/bopandrebop/'
+  publicPath: '/bopandrebop/',
+  productionSourceMap: false,
+  assetsDir: 'assets'
 }
