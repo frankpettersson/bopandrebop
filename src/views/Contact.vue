@@ -1,5 +1,6 @@
 <template lang="pug">
-  .contact CONTACT
+  .contact
+    h1 CONTACT
 </template>
 
 <script>
