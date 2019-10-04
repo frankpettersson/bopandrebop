@@ -1,6 +1,5 @@
 <template lang="pug">
-  .home
-    h1 HOME
+  .all-vinyls ALL VINYLS
 </template>
 
 <script>

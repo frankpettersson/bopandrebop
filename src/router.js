@@ -12,9 +12,14 @@ export default new Router({
       component: Home
     },
     {
-      path: '/about',
-      name: 'about',
-      component: () => import('./views/About.vue')
+      path: '/allVinyls',
+      name: 'allVinyls',
+      component: () => import('./views/AllVinyls.vue')
+    },
+    {
+      path: '/contact',
+      name: 'contact',
+      component: () => import('./views/Contact.vue')
     }
   ]
 })

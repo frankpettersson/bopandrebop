@@ -1,6 +1,6 @@
 <template lang="pug">
-  .home
-    h1 HOME
+    .selected-vinyls
+        
 </template>
 
 <script>
