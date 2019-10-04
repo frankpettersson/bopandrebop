@@ -13,9 +13,9 @@ export default new Router({
       component: Home
     },
     {
-      path: '/vinyls',
-      name: 'vinyls',
-      component: () => import('./views/Vinyls.vue')
+      path: '/records',
+      name: 'records',
+      component: () => import('./views/Records.vue')
     },
     {
       path: '/contact',

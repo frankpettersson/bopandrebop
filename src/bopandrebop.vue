@@ -2,8 +2,8 @@
   #bopandrebop
     #nav
       router-link(to="/") HOME
-      router-link(to="/Vinyls") VINYLS
-      router-link(to="/Contact") CONTACT
+      router-link(to="/records") RECORDS
+      router-link(to="/contact") CONTACT
     router-view
     #footer
 </template>
