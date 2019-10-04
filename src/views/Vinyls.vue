@@ -1,35 +1,10 @@
 <template lang="pug">
   .vinyls
-    img.loading(v-if="loading" src="../assets/loading.gif")
-    p loading
-
-    article(v-for="post in posts" :key="post.id")
-      h2 {{ post.title }}
-      div {{ post.content }}
+    h1 VINYLS
 </template>
 
 <script>
-const GetAirtableApi = () => import('@/services/api/airtable.js')
-export default {
-  name: 'GetAirtable',
-  data() {
-    return {
-      loading: true,
-      posts: []
-    }
-  },
-
-  created() {
-    GetAirtableApi.getPosts()
-      .then(posts => {
-        this.posts = posts
-      })
-      .catch(err => console.log(err))
-      .finally(() => {
-        this.loading = false
-      })
-  }
-}
+export default {}
 </script>
 
 <style lang="scss">
