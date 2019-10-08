@@ -53,8 +53,8 @@ body {
     text-decoration: none;
     &.router-link-exact-active {
       background-image: url('https://thumbs.gfycat.com/HelpfulDazzlingBluebottlejellyfish-max-1mb.gif');
-      background-position: top center;
-      background-size: 90px 90px;
+      background-position: center center;
+      background-size: 120px 120px;
       background-repeat: no-repeat;
       text-shadow: 1px 1px 5px #000000;
       color: white;

@@ -1,8 +1,8 @@
-const GoogleFontsPlugin = require('google-fonts-webpack-plugin')
+//const GoogleFontsPlugin = require('google-fonts-webpack-plugin')
 
 module.exports = {
-  productionSourceMap: false,
-  configureWebpack: {
+  productionSourceMap: false
+  /*configureWebpack: {
     plugins: [
       new GoogleFontsPlugin({
         fonts: [
@@ -11,5 +11,5 @@ module.exports = {
         ]
       })
     ]
-  }
+  }*/
 }

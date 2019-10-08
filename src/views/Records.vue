@@ -40,13 +40,8 @@ export default {
         Authorization: 'Bearer key3qyDzMZuJEmTvR'
       }
     })
-      .then(response => {
-        this.records = response.data.records
-      })
-      .catch(error => {
-        console.log(error)
-        this.errored = true
-      })
+      .then(response => (this.records = response.data.records))
+      .catch(() => (this.errored = true))
       .finally(() => (this.loading = false))
   }
 }
