@@ -1,17 +1,15 @@
 <template lang="pug">
   .records
-    allRecords
+    records
 </template>
 
 <script>
-import allRecords from '@/components/all-records.vue'
+import records from '@/components/records.vue'
 import divider from '@/components/divider.vue'
 export default {
   components: {
-    allRecords,
+    records,
     divider
   }
 }
 </script>
-
-<style lang="scss"></style>

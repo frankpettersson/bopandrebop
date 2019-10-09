@@ -12,6 +12,6 @@ export default {
 .divider {
   border-top: 5px solid black;
   margin: 20px auto;
-  width: 70vw;
+  width: 100%;
 }
 </style>
