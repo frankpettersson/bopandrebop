@@ -8,13 +8,13 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'records',
-      component: () => import('./views/Records.vue')
+      name: 'vinyls',
+      component: () => import('./views/Vinyls.vue')
     },
     {
-      path: '/contact',
-      name: 'contact',
-      component: () => import('./views/Contact.vue')
+      path: '/info',
+      name: 'info',
+      component: () => import('./views/Info.vue')
     }
   ]
 })

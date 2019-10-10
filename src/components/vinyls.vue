@@ -1,44 +1,66 @@
 <template lang="pug">
-  #records
-    sectionTitle(titleName="RECORDS")
+  .vinyls
+    sectionTitle(titleName="VINYLS FOR SALE")
     section(v-if="errored")
-      h2.error Unable to get records, please try again later...
+      h2.error Unable to get vinyls, please try again later...
     section(v-else)
       .loading(v-if="loading")
-        img(src="@/assets/record.webm")
+        img(src="@/assets/vinyl.webm")
         h2 Loading...
-      .record-grid(v-else)
-        .record(v-for="record in records")
-          .record-thumbnail
-            img(:src="record.fields.Omslagsbild[0].url")
-          .record-text
-            .record-text-section
-              .record-artist {{ record.fields.Artist }}
-              .record-album {{ record.fields.Album }}
-            .record-genres
-              .record-genre(v-for="genre in record.fields.Genrer") {{ genre }}
-            .record-info(v-if="record.fields.Info.length<90") {{ record.fields.Info }}
-            .record-info(v-else) {{ record.fields.Info.substring(0,90)+"..." }}
-            .record-text-section
-              .record-date {{ record.fields.Släpptes }}
-              .record-price {{ record.fields.Pris }}kr
+      .vinyl-grid(v-else)
+        .vinyl(v-for="vinyl in vinyls" v-if="!vinyl.fields.Såld")
+          .vinyl-thumbnail
+            img(:src="vinyl.fields.Omslagsbild[0].url")
+          .vinyl-text
+            .vinyl-text-section
+              .vinyl-artist {{ vinyl.fields.Artist }}
+              .vinyl-album {{ vinyl.fields.Album }}
+            .vinyl-genres
+              .vinyl-genre(v-for="genre in vinyl.fields.Genrer") {{ genre }}
+            .vinyl-info(v-if="vinyl.fields.Info.length<90")
+              p {{ vinyl.fields.Info }}
+            .vinyl-info(v-else) 
+              p(style="display: none") {{ vinyl.fields.Info }}
+              p(style="display: inline") {{ vinyl.fields.Info.substring(0,90) }}
+              a(@click="toggleShow") ...show more
+            .vinyl-text-section
+              .vinyl-date {{ vinyl.fields.Släpptes }}
+              .vinyl-price {{ vinyl.fields.Pris }}kr
 </template>
 
 <script>
 import Axios from 'axios'
 import divider from '@/components/divider.vue'
-import sectionTitle from '@/components/title.vue'
+import sectionTitle from '@/components/sectionTitle.vue'
 export default {
   components: {
     divider,
     sectionTitle
   },
-  name: 'records',
+  name: 'vinyls',
   data() {
     return {
-      records: null,
+      vinyls: null,
       loading: true,
-      errored: false
+      errored: false,
+      textToggle: false
+    }
+  },
+  methods: {
+    toggleShow(event) {
+      if (this.textToggle === false) {
+        event.target.textContent = '...show less'
+        event.target.previousElementSibling.style.display = 'none'
+        event.target.previousElementSibling.previousElementSibling.style.display =
+          'inline'
+        this.textToggle = true
+      } else {
+        event.target.textContent = '...show more'
+        event.target.previousElementSibling.style.display = 'inline'
+        event.target.previousElementSibling.previousElementSibling.style.display =
+          'none'
+        this.textToggle = false
+      }
     }
   },
   mounted() {
@@ -50,7 +72,7 @@ export default {
         Authorization: 'Bearer key3qyDzMZuJEmTvR'
       }
     })
-      .then(response => (this.records = response.data.records))
+      .then(response => (this.vinyls = response.data.records))
       .catch(() => (this.errored = true))
       .finally(() => (this.loading = false))
   }
@@ -58,7 +80,7 @@ export default {
 </script>
 
 <style lang="scss">
-#records {
+.vinyls {
   h1 {
     text-align: left;
     margin: 0 auto;
@@ -82,7 +104,7 @@ export default {
       width: 100px;
     }
   }
-  .record-grid {
+  .vinyl-grid {
     @media only screen and (max-width: 500px) {
       grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
     }
@@ -101,7 +123,7 @@ export default {
       grid-column: 1 / 1;
     }
 
-    .record {
+    .vinyl {
       padding: 15%;
       transition: all 0.3s;
 
@@ -109,7 +131,7 @@ export default {
         grid-row: 1 / 1;
         grid-column: 1 / 1;
       }
-      .record-thumbnail {
+      .vinyl-thumbnail {
         img {
           cursor: pointer;
           display: block;
@@ -122,40 +144,40 @@ export default {
           }
         }
       }
-      .record-text {
+      .vinyl-text {
         border-top: none;
-        .record-text-section {
+        .vinyl-text-section {
           display: flex;
           flex-direction: column;
           justify-content: center;
           padding: 5px;
-          .record-artist {
+          .vinyl-artist {
             padding-bottom: 2px;
             font-weight: 700;
             font-size: 1.5em;
           }
-          .record-album {
+          .vinyl-album {
             padding-top: 2px;
             font-style: italic;
             font-size: 1.3em;
           }
-          .record-date {
+          .vinyl-date {
             padding-bottom: 2px;
             font-weight: 700;
             font-size: 0.8em;
           }
-          .record-price {
+          .vinyl-price {
             padding-top: 2px;
             font-weight: 700;
             text-decoration: underline;
           }
         }
-        .record-genres {
+        .vinyl-genres {
           display: flex;
           justify-content: center;
           flex-wrap: wrap;
           padding: 5px;
-          .record-genre {
+          .vinyl-genre {
             border: 1px solid black;
             border-radius: 4px;
             margin: 2px;
@@ -164,9 +186,20 @@ export default {
             font-size: 0.8em;
           }
         }
-        .record-info {
+        .vinyl-info {
           padding: 5px;
           font-size: 0.9em;
+          p {
+            display: inline;
+          }
+          a {
+            color: blue;
+            cursor: pointer;
+
+            &:hover {
+              text-decoration: underline;
+            }
+          }
         }
       }
     }
