@@ -21,7 +21,7 @@
             .vinyl-info(v-else) 
               p(style="display: none") {{ vinyl.fields.Info }}
               p(style="display: inline") {{ vinyl.fields.Info.substring(0,90) }}
-              a(@click="toggleShow" aria-label="view whole text") ...show more
+              a(@click="toggleShow" aria-label="toggle hide/show text") ...show more
             .vinyl-text-section
               .vinyl-date {{ vinyl.fields.Släpptes }}
               .vinyl-price {{ vinyl.fields.Pris }}kr
@@ -97,10 +97,6 @@ export default {
     h2 {
       line-height: 50px;
       font-size: 30px;
-    }
-    img {
-      height: 100px;
-      width: 100px;
     }
   }
   .vinyl-grid {
