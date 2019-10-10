@@ -5,7 +5,6 @@
       h2.error Unable to get vinyls, please try again later...
     section(v-else)
       .loading(v-if="loading")
-        img(src="@/assets/vinyl.webm")
         h2 Loading...
       .vinyl-grid(v-else)
         .vinyl(v-for="vinyl in vinyls" v-if="!vinyl.fields.Såld")
