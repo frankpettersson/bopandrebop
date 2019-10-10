@@ -21,7 +21,7 @@
             .vinyl-info(v-else) 
               p(style="display: none") {{ vinyl.fields.Info }}
               p(style="display: inline") {{ vinyl.fields.Info.substring(0,90) }}
-              a(@click="toggleShow" :aria-label="view whole text about vinyl.fields.Album") ...show more
+              a(@click="toggleShow" aria-label="view whole text") ...show more
             .vinyl-text-section
               .vinyl-date {{ vinyl.fields.Släpptes }}
               .vinyl-price {{ vinyl.fields.Pris }}kr

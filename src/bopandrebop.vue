@@ -3,7 +3,7 @@
     header
       nav
         #head
-          #logo bopandrebop
+          a#logo(href="/" aria-label="logo") bopandrebop
         .links
           router-link(to="/") VINYLS
           router-link(to="/info") INFO
