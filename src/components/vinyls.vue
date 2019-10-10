@@ -9,7 +9,7 @@
       .vinyl-grid(v-else)
         .vinyl(v-for="vinyl in vinyls" v-if="!vinyl.fields.Såld")
           .vinyl-thumbnail
-            img(:src="vinyl.fields.Omslagsbild[0].url")
+            img(:src="vinyl.fields.Omslagsbild[0].url" :alt="vinyl.fields.Album")
           .vinyl-text
             .vinyl-text-section
               .vinyl-artist {{ vinyl.fields.Artist }}
@@ -21,7 +21,7 @@
             .vinyl-info(v-else) 
               p(style="display: none") {{ vinyl.fields.Info }}
               p(style="display: inline") {{ vinyl.fields.Info.substring(0,90) }}
-              a(@click="toggleShow") ...show more
+              a(@click="toggleShow" :aria-label="view whole text about vinyl.fields.Album") ...show more
             .vinyl-text-section
               .vinyl-date {{ vinyl.fields.Släpptes }}
               .vinyl-price {{ vinyl.fields.Pris }}kr
