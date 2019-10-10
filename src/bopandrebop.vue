@@ -14,7 +14,7 @@
     footer
       .social-media
         a(href="https://www.instagram.com/bop_and_rebop/" target="_blank" rel="noopener" aria-label="go to instagram page") 
-          img(src="@/assets/instagram.png")
+          img(src="@/assets/instagram.png" alt="instagram")
       .contact
         .name Tobias Magnusson
         .e-mail tobias@bopandrebop.com

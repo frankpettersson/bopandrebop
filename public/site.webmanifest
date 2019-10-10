@@ -1,0 +1,17 @@
+{
+  "name": "bopandrebop",
+  "short_name": "bopandrebop",
+  "description": "Online Vinylshop",
+  "theme_color": "#000000",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "orientation": "any",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "/img/logo.png",
+      "sizes": "200x200",
+      "type": "image/png"
+    }
+  ]
+}
