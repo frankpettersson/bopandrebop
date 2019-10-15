@@ -130,8 +130,6 @@ export default {
         box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
         img {
           display: block;
-          //border: 2px solid black;
-          //width: calc(100% - 4px);
           width: 100%;
           &:after {
             content: '';
