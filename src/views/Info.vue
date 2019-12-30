@@ -1,21 +1,11 @@
 <template lang="pug">
   #info
-    sectionTitle(titleName="INFO")
     .info-text-eng
       .intro Hello!
       .text I am a vinylcollector living in Gothenburg, Sweden.
       .text If you would like to purchase a vinyl just send an email with the name of the vinyl and your contact information to  
-        a(href="mailto:tobias@bopandrebop.com" aria-label="send an email to tobias@bopandrebop.com") tobias@bopandrebop.com
+        a(href="mailto:frank.pettersson2@gmail.com" aria-label="send an email to frank.pettersson2@gmail.com") frank.pettersson2@gmail.com
 </template>
-
-<script>
-import sectionTitle from '@/components/sectionTitle.vue'
-export default {
-  components: {
-    sectionTitle
-  }
-}
-</script>
 
 <style lang="scss">
 .info-text-swe,

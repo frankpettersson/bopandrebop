@@ -17,7 +17,7 @@
           img(src="@/assets/instagram.png" alt="instagram")
       .contact
         .name Tobias Magnusson
-        .e-mail tobias@bopandrebop.com
+        .e-mail frank.pettersson2@gmail.com
 </template>
 
 <script>
